@@ -1,4 +1,6 @@
-<h1 align="center">Hi 👋, I'm Jay</h1>
+
+<a align="center" id="rect">
+![rect](https://capsule-render.vercel.app/api?type=rect&color=gradient&text=%20%20Hi 👋, I'm Jay%20%20&fontAlign=30&fontSize=30&textBg=true&desc=Use%20%27textBg%27%20to%20highlight%20%27text%27&descAlign=60&descAlignY=50)
 <h3 align="center">currently writing this on.</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=presentjay&label=Profile%20views&color=0e75b6&style=flat" alt="presentjay" /> </p>
