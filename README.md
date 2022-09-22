@@ -1,5 +1,6 @@
 
-<a align="center" id="rect">
+
+![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=capsule%20render&fontSize=90)
 ![rect](https://capsule-render.vercel.app/api?type=rect&color=gradient&text=%20%20Hi 👋, I'm Jay%20%20&fontAlign=30&fontSize=30&textBg=true&desc=Use%20%27textBg%27%20to%20highlight%20%27text%27&descAlign=60&descAlignY=50)
 <h3 align="center">currently writing this on.</h3>
 
