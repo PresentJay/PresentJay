@@ -191,7 +191,7 @@
 
 
 ## Github Stats  
-<div align="center"><img src="https://github-readme-stats.vercel.app/api?username=PresentJay&show_icons=true&count_private=true&hide_border=true" align="center" /></div>  
+https://github-readme-stats.vercel.app/api?username=presentjay&show_icons=true&count_private=true&include_all_commits=true&bg_color=ffd3ff&icon_color=000000&title_color=000000&text_color=000000
 
 <br/>  
 
