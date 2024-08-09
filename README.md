@@ -4,7 +4,7 @@
 
 </div>
 
-<div align="center"><img src='https://subreddit-scrape-presentjay.koyeb.app/' title="Meme" alt="Please refresh the page if the meme doesn't show up."></div>
+<div align="center"><img src='https://subreddit-scrape-presentjay.koyeb.app/?cachebuster=1' title="Meme" alt="Please refresh the page if the meme doesn't show up."></div>
 
 <br/>  
 
