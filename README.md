@@ -5,7 +5,7 @@
 </div>
 
 <div align="center">
-    <img src="https://subreddit-scrape-presentjay.koyeb.app/" title="Meme" alt="Please refresh the page if the meme doesn't show up.">
+    <img src="https://subreddit-scrape-presentjay.koyeb.app/?t=<current_time>" title="Meme" alt="Please refresh the page if the meme doesn't show up.">
 </div>
 
 <br/>  
