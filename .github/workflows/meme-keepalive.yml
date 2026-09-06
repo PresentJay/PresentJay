@@ -15,8 +15,8 @@ jobs:
     steps:
       - name: ping
         run: |
-          curl -fsS --max-time 60 -o /dev/null \
-            -w 'status=%{http_code} time=%{time_total}s\n' \
-            -H 'User-Agent: PresentJay-keepalive' \
-            https://subreddit-scrape-presentjay.koyeb.app/ \
+          BASE=https://subreddit-scrape-presentjay.koyeb.app
+          # /health 는 이미지를 받지 않는다. 아직 배포 전이면 / 로 떨어진다.
+          curl -fsS --max-time 60 -o /dev/null -w 'health status=%{http_code} time=%{time_total}s\n' "$BASE/health" \
+            || curl -fsS --max-time 60 -o /dev/null -w 'root   status=%{http_code} time=%{time_total}s\n' "$BASE/" \
             || echo "ping failed, next run will retry"
