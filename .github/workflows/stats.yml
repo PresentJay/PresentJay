@@ -6,10 +6,6 @@ name: profile stats
 #
 # assets 브랜치에 커밋하는 이유: 기여 그래프는 기본 브랜치만 센다.
 # 잔디가 봇 커밋으로 더럽혀지지 않는다.
-#
-# ⚠️ secrets.STATS_TOKEN 이 필요하다. 기본 GITHUB_TOKEN 으로는 비공개 저장소
-# 기여가 빠져서 숫자가 6,209 에서 900 대로 주저앉는다.
-# 만드는 법: Settings > Developer settings > PAT (classic), 스코프 read:user 하나.
 
 on:
   schedule:
@@ -23,6 +19,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: require a token that can see private work
+        env:
+          STATS_TOKEN: ${{ secrets.STATS_TOKEN }}
+        run: |
+          # 기본 GITHUB_TOKEN 으로 돌리면 비공개 저장소 PR 이 빠져서
+          # 머지 PR 수가 2,628 -> 314 로 주저앉는다. 기여 수는 그대로라
+          # 카드가 멀쩡해 보이면서 한 칸만 8배 작아진다. 그런 건 조용히 나가면 안 된다.
+          if [ -z "$STATS_TOKEN" ]; then
+            echo "::error::STATS_TOKEN 이 없다. Settings > Secrets > Actions 에 추가한다."
+            echo "PAT (classic), 스코프는 read:user 와 repo."
+            exit 1
+          fi
+
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
         with:
@@ -31,7 +40,7 @@ jobs:
 
       - name: generate
         env:
-          GH_TOKEN: ${{ secrets.STATS_TOKEN || github.token }}
+          GH_TOKEN: ${{ secrets.STATS_TOKEN }}
           GH_USER: PresentJay
           OUT: assets/stats.svg
         run: python3 scripts/gen_stats.py
