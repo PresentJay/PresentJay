@@ -1,0 +1,22 @@
+name: keep meme awake
+
+# koyeb 프리 티어가 유휴 시 0으로 내려가고 깨어나는 데 11초 걸린다.
+# GitHub 이미지 프록시(camo)는 그 전에 타임아웃을 내서 밈이 깨져 보인다.
+# 5분마다 찔러 재우지 않는다. 응답을 저장하지 않으므로 새로고침마다 바뀌는 동작은 그대로다.
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ping
+        run: |
+          curl -fsS --max-time 60 -o /dev/null \
+            -w 'status=%{http_code} time=%{time_total}s\n' \
+            -H 'User-Agent: PresentJay-keepalive' \
+            https://subreddit-scrape-presentjay.koyeb.app/ \
+            || echo "ping failed, next run will retry"
