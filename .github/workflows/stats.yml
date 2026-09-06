@@ -1,0 +1,47 @@
+name: profile stats
+
+# 카드를 남의 무료 인스턴스에 얹지 않는다. github-readme-stats 공용 배포는
+# GitHub API 레이트리밋에 걸려 503 을 상시로 낸다(2026-09-06 3회 연속 확인).
+# 여기서 직접 만들어 assets 브랜치에 커밋한다. README 가 그 파일을 가리킨다.
+#
+# assets 브랜치에 커밋하는 이유: 기여 그래프는 기본 브랜치만 센다.
+# 잔디가 봇 커밋으로 더럽혀지지 않는다.
+#
+# ⚠️ secrets.STATS_TOKEN 이 필요하다. 기본 GITHUB_TOKEN 으로는 비공개 저장소
+# 기여가 빠져서 숫자가 6,209 에서 900 대로 주저앉는다.
+# 만드는 법: Settings > Developer settings > PAT (classic), 스코프 read:user 하나.
+
+on:
+  schedule:
+    - cron: "23 4 * * 1"   # 매주 월요일
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: assets
+          path: assets
+
+      - name: generate
+        env:
+          GH_TOKEN: ${{ secrets.STATS_TOKEN || github.token }}
+          GH_USER: PresentJay
+          OUT: assets/stats.svg
+        run: python3 scripts/gen_stats.py
+
+      - name: commit if changed
+        working-directory: assets
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stats.svg
+          git diff --cached --quiet && { echo "same numbers, nothing to do"; exit 0; }
+          git commit -m "chore: refresh profile stats"
+          git push
