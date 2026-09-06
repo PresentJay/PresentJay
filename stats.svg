@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="520" height="132" viewBox="0 0 520 132" role="img">
 <rect width="520" height="132" rx="10" fill="#ffd3ff"/>
 <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">
-<text x="78.5" y="66" font-size="27" font-weight="700" fill="#111111">6,209</text>
+<text x="78.5" y="66" font-size="27" font-weight="700" fill="#111111">6,212</text>
 <text x="78.5" y="87" font-size="11.5" fill="#111111">contributions</text>
 <text x="78.5" y="103" font-size="10" fill="#6b4a6b">last 12 months</text>
 <line x1="139.0" y1="34" x2="139.0" y2="102" stroke="#111111" stroke-opacity=".13"/>
@@ -9,7 +9,7 @@
 <text x="199.5" y="87" font-size="11.5" fill="#111111">active days</text>
 <text x="199.5" y="103" font-size="10" fill="#6b4a6b">of 365</text>
 <line x1="260.0" y1="34" x2="260.0" y2="102" stroke="#111111" stroke-opacity=".13"/>
-<text x="320.5" y="66" font-size="27" font-weight="700" fill="#111111">2,628</text>
+<text x="320.5" y="66" font-size="27" font-weight="700" fill="#111111">314</text>
 <text x="320.5" y="87" font-size="11.5" fill="#111111">pull requests</text>
 <text x="320.5" y="103" font-size="10" fill="#6b4a6b">merged, all time</text>
 <line x1="381.0" y1="34" x2="381.0" y2="102" stroke="#111111" stroke-opacity=".13"/>
